@@ -11,557 +11,259 @@
     content="Answer quick questions, discover rare opinions, unlock personality insights, and see how you compare with everyone else."
   />
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f8fafc;
-      color: #111827;
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.25), transparent 32%),
-        linear-gradient(135deg, #111827, #1e3a8a);
-      color: white;
-      padding: 28px 20px 80px;
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto 70px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-    }
-
-    .navLinks {
-      display: flex;
-      gap: 18px;
-      color: #dbeafe;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .heroInner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 44px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
-      color: #bfdbfe;
-      margin-bottom: 18px;
-    }
-
-    h1 {
-      font-size: clamp(44px, 7vw, 76px);
-      line-height: 0.95;
-      letter-spacing: -0.07em;
-      margin: 0 0 22px;
-      font-weight: 950;
-    }
-
-    .heroText {
-      font-size: 20px;
-      color: #dbeafe;
-      max-width: 620px;
-      margin-bottom: 30px;
-    }
-
-    .ctaRow {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      padding: 14px 20px;
-      font-weight: 900;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .buttonPrimary {
-      background: white;
-      color: #111827;
-    }
-
-    .buttonSecondary {
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .phoneMock {
-      background: #020617;
-      border-radius: 38px;
-      padding: 14px;
-      max-width: 360px;
-      margin: 0 auto;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.38);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .phoneScreen {
-      background: #f8fafc;
-      border-radius: 28px;
-      padding: 22px;
-      color: #111827;
-    }
-
-    .mockBrand {
-      color: #2563eb;
-      font-size: 13px;
-      font-weight: 900;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .mockQuestion {
-      font-size: 28px;
-      line-height: 1.1;
-      font-weight: 950;
-      letter-spacing: -0.04em;
-      margin-bottom: 18px;
-    }
-
-    .mockOption {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 14px;
-      font-weight: 900;
-      margin-bottom: 10px;
-      text-align: center;
-    }
-
-    .mockResult {
-      background: #111827;
-      color: white;
-      border-radius: 20px;
-      padding: 16px;
-      margin-top: 16px;
-    }
-
-    .mockResultTitle {
-      font-size: 15px;
-      color: #93c5fd;
-      font-weight: 900;
-      text-transform: uppercase;
-    }
-
-    .mockResultBig {
-      font-size: 26px;
-      font-weight: 950;
-      margin: 8px 0 4px;
-    }
-
-    .section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 76px 20px;
-    }
-
-    .sectionHeader {
-      max-width: 720px;
-      margin-bottom: 36px;
-    }
-
-    .sectionHeader h2 {
-      font-size: clamp(34px, 5vw, 52px);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      margin: 0 0 12px;
-      font-weight: 950;
-    }
-
-    .sectionHeader p {
-      color: #64748b;
-      font-size: 18px;
-      margin: 0;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 26px;
-      padding: 24px;
-      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
-    }
-
-    .icon {
-      font-size: 34px;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      font-size: 21px;
-      margin: 0 0 8px;
-      font-weight: 950;
-      letter-spacing: -0.03em;
-    }
-
-    .card p {
-      margin: 0;
-      color: #64748b;
-    }
-
-    .darkSection {
-      background: #111827;
-      color: white;
-    }
-
-    .darkInner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 76px 20px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .darkInner h2 {
-      font-size: clamp(34px, 5vw, 56px);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      margin: 0 0 16px;
-      font-weight: 950;
-    }
-
-    .darkInner p {
-      color: #cbd5e1;
-      font-size: 18px;
-    }
-
-    .statGrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .stat {
-      background: #1f2937;
-      border-radius: 22px;
-      padding: 20px;
-    }
-
-    .statBig {
-      font-size: 34px;
-      font-weight: 950;
-      color: #93c5fd;
-    }
-
-    .statText {
-      color: #cbd5e1;
-      font-weight: 800;
-    }
-
-    .download {
-      text-align: center;
-      background:
-        radial-gradient(circle at top, rgba(59, 130, 246, 0.18), transparent 36%),
-        white;
-      border: 1px solid #e5e7eb;
-      border-radius: 34px;
-      padding: 48px 24px;
-      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.08);
-    }
-
-    .download h2 {
-      font-size: clamp(34px, 5vw, 54px);
-      line-height: 1;
-      letter-spacing: -0.06em;
-      margin: 0 0 12px;
-      font-weight: 950;
-    }
-
-    .download p {
-      color: #64748b;
-      font-size: 18px;
-      max-width: 620px;
-      margin: 0 auto 24px;
-    }
-
-    .storeButtons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    .storeButton {
-      background: #111827;
-      color: white;
-      border-radius: 16px;
-      padding: 14px 22px;
-      font-weight: 950;
-      min-width: 190px;
-    }
-
-    .storeButtonMuted {
-      background: #e5e7eb;
-      color: #374151;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    .footerLinks {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      margin-bottom: 12px;
-      font-weight: 800;
-    }
-
-    @media (max-width: 820px) {
-      .heroInner,
-      .darkInner {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        margin-bottom: 42px;
-      }
-
-      .navLinks {
-        display: none;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .statGrid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-bottom: 56px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
-  <header class="hero">
+  <header class="site-header">
     <nav class="nav">
-      <div class="logo">You vs Everyone</div>
+      <a class="logo-link" href="/">
+        <img class="logo" src="/logo.png" alt="You vs Everyone logo" />
+        <span>You vs Everyone</span>
+      </a>
 
-      <div class="navLinks">
-        <a href="#features">Features</a>
-        <a href="#download">Download</a>
-        <a href="/privacy.html">Privacy</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="/delete-account">Delete Account</a>
       </div>
     </nav>
+  </header>
 
-    <div class="heroInner">
+  <section class="hero">
+    <div class="hero-inner">
       <div>
-        <div class="eyebrow">👀 Find out how normal your opinions are</div>
+        <div class="eyebrow">
+          👀 Find out how normal your opinions are
+        </div>
 
         <h1>Answer fast. Compare instantly.</h1>
 
-        <p class="heroText">
-          You vs Everyone is a quick social comparison app where you answer
+        <p class="hero-text">
+          You vs Everyone is a social comparison app where you answer
           fun questions, discover rare opinions, unlock personality signals,
           and see how your choices stack up against the crowd.
         </p>
 
-        <div class="ctaRow">
-          <a class="button buttonPrimary" href="#download">Get the app</a>
-          <a class="button buttonSecondary" href="#features">See features</a>
+        <div class="cta-row">
+          <a
+            class="button button-primary"
+            href="https://play.google.com/store/apps/details?id=com.youvseveryone.app"
+          >
+            Get it on Google Play
+          </a>
+
+          <a
+            class="button button-muted"
+            href="#features"
+          >
+            See Features
+          </a>
         </div>
       </div>
 
-      <div class="phoneMock">
-        <div class="phoneScreen">
-          <div class="mockBrand">You vs Everyone</div>
-          <div class="mockQuestion">
+      <div class="phone-mock">
+        <div class="phone-screen">
+          <div class="mock-brand">You vs Everyone</div>
+
+          <div class="mock-question">
             Would you rather know the future or change the past?
           </div>
 
-          <div class="mockOption">Know the future</div>
-          <div class="mockOption">Change the past</div>
+          <div class="mock-option">
+            Know the future
+          </div>
 
-          <div class="mockResult">
-            <div class="mockResultTitle">Your Signal</div>
-            <div class="mockResultBig">🔥 Rare Take</div>
-            <div>Only 23% picked your answer.</div>
+          <div class="mock-option">
+            Change the past
+          </div>
+
+          <div class="mock-result">
+            <div style="font-size: 15px; color: #93c5fd; font-weight: 900; text-transform: uppercase;">
+              Your Signal
+            </div>
+
+            <div style="font-size: 26px; font-weight: 950; margin: 8px 0 4px;">
+              🔥 Rare Take
+            </div>
+
+            <div>
+              Only 23% picked your answer.
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </section>
 
   <main>
     <section id="features" class="section">
-      <div class="sectionHeader">
+      <div class="section-header">
         <h2>More addictive than a normal quiz.</h2>
+
         <p>
-          Every answer reveals something about you, your instincts, and how you
-          compare with everyone else.
+          Every answer reveals something about you, your instincts,
+          and how you compare with everyone else.
         </p>
       </div>
 
       <div class="grid">
         <div class="card">
           <div class="icon">🔥</div>
+
           <h3>Rare opinion labels</h3>
+
           <p>
-            Find out when your answer is mainstream, divisive, uncommon, or a
-            full-on hot take.
+            Find out when your answer is mainstream, divisive,
+            uncommon, or a full-on hot take.
           </p>
         </div>
 
         <div class="card">
           <div class="icon">🧠</div>
+
           <h3>Personality signals</h3>
+
           <p>
-            Unlock archetypes and patterns based on the choices you make over time.
+            Unlock archetypes and patterns based on the choices
+            you make over time.
           </p>
         </div>
 
         <div class="card">
           <div class="icon">⚖️</div>
+
           <h3>Controversy score</h3>
+
           <p>
-            See which questions split people the most and where your answers land.
+            See which questions split people the most and where
+            your answers land.
           </p>
         </div>
 
         <div class="card">
           <div class="icon">📊</div>
+
           <h3>Live community trends</h3>
+
           <p>
-            Compare your answers against community response trends after every pick.
+            Compare your answers against community response trends
+            after every pick.
           </p>
         </div>
 
         <div class="card">
           <div class="icon">🚀</div>
+
           <h3>Daily streaks</h3>
+
           <p>
-            Answer daily questions, build streaks, unlock badges, and keep your profile growing.
+            Answer daily questions, build streaks, unlock badges,
+            and keep your profile growing.
           </p>
         </div>
 
         <div class="card">
           <div class="icon">👯</div>
+
           <h3>Challenge friends</h3>
+
           <p>
-            Share a question and see if your friends agree with your answer or completely disagree.
+            Share a question and see if your friends agree
+            with your answer or completely disagree.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="darkSection">
-      <div class="darkInner">
+    <section class="dark-section">
+      <div class="dark-inner">
         <div>
           <h2>Are you normal, rare, or chaotic?</h2>
+
           <p>
-            The fun is not just answering questions. It is finding out whether
-            you think like everyone else, or whether your choices are surprisingly rare.
+            The fun is not just answering questions.
+            It is finding out whether you think like everyone else,
+            or whether your choices are surprisingly rare.
           </p>
         </div>
 
-        <div class="statGrid">
+        <div class="stat-grid">
           <div class="stat">
-            <div class="statBig">23%</div>
-            <div class="statText">picked your answer</div>
+            <div class="stat-big">23%</div>
+
+            <div class="stat-text">
+              picked your answer
+            </div>
           </div>
 
           <div class="stat">
-            <div class="statBig">88</div>
-            <div class="statText">controversy score</div>
+            <div class="stat-big">88</div>
+
+            <div class="stat-text">
+              controversy score
+            </div>
           </div>
 
           <div class="stat">
-            <div class="statBig">🔥</div>
-            <div class="statText">rare take unlocked</div>
+            <div class="stat-big">🔥</div>
+
+            <div class="stat-text">
+              rare take unlocked
+            </div>
           </div>
 
           <div class="stat">
-            <div class="statBig">🧠</div>
-            <div class="statText">personality signal detected</div>
+            <div class="stat-big">🧠</div>
+
+            <div class="stat-text">
+              personality signal detected
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="download" class="section">
+    <section class="section">
       <div class="download">
         <h2>Start comparing your answers.</h2>
+
         <p>
-          Download You vs Everyone and find out where your opinions stand.
-          More platforms and invite links coming soon.
+          Download You vs Everyone and discover how your opinions
+          compare with the rest of the world.
         </p>
 
-        <div class="storeButtons">
-          <a class="storeButton" href="#">
+        <div class="store-buttons">
+          <a
+            class="button button-dark"
+            href="https://play.google.com/store/apps/details?id=com.youvseveryone.app"
+          >
             Get it on Google Play
           </a>
 
-          <a class="storeButton storeButtonMuted" href="#">
-            iOS coming soon
+          <a
+            class="button button-muted"
+            href="#"
+          >
+            iOS Coming Soon
           </a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footerLinks">
-      <a href="/privacy.html">Privacy Policy</a>
-      <a href="/terms.html">Terms</a>
-      <a href="/delete-account.html">Delete Account</a>
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms</a>
+      <a href="/delete-account">Delete Account</a>
     </div>
 
-    <div>© 2026 You vs Everyone. All rights reserved.</div>
+    <div>
+      © 2026 You vs Everyone. All rights reserved.
+    </div>
   </footer>
 </body>
 </html>
