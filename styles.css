@@ -16,9 +16,14 @@ a {
 }
 
 .site-header {
-  background: #111827;
-  color: white;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  color: #111827;
   padding: 18px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav {
@@ -48,7 +53,7 @@ a {
 .nav-links {
   display: flex;
   gap: 18px;
-  color: #dbeafe;
+  color: #111827;
   font-weight: 800;
   font-size: 14px;
 }
