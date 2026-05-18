@@ -184,6 +184,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
+  justify-content: center;
 }
 
 .store-buttons {
